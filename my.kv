@@ -1,0 +1,35 @@
+WindowManager:
+    Title:
+    Manual: 
+    Setting:
+    Gameplay:
+
+
+<Title>:
+    name: "title"
+
+    GridLayout:
+        cols: 3
+        rows: 2
+        GridLayout:
+            cols: 1
+            Label: 
+                text: "Survival Game"
+            Button:
+                id: start
+                text: "Start"
+                on_release: 
+                    app.root.current = "gameplay"
+            Button: 
+                id: manual
+                text: "Manual"
+            Button:
+                id: settings
+                text: "Settings"
+
+
+<Gameplay>:
+    name: "gameplay"
+
+    Label: 
+        text: "Game start"
