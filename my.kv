@@ -120,6 +120,18 @@ WindowManager:
         root.start_game()
     GridLayout:
         cols:1
+        Label:
+            text: "Image Placement"
+        GridLayout:
+            cols:2
+            Button: 
+                text: "area1"
+                on_release: 
+                    root.area_1()
+            Button: 
+                text: "area2"
+                on_release:
+                    root.area_2()
         Button:
             text: "Back"
             on_release: 
