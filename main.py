@@ -15,11 +15,19 @@ class Title(Screen):
     pass
 
 
+class Load_Game(Screen):
+    pass
+
+
 class Manual(Screen):
     pass
 
 
 class Setting(Screen):
+    pass
+
+
+class Difficulty(Screen):
     pass
 
 

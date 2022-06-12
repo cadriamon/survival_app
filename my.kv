@@ -1,7 +1,9 @@
 WindowManager:
     Title:
+    Load_Game:
     Manual: 
     Setting:
+    Difficulty:
     Gameplay:
 
 
@@ -19,14 +21,88 @@ WindowManager:
                 id: start
                 text: "Start"
                 on_release: 
-                    app.root.current = "gameplay"
+                    app.root.current = "difficulty"
+                    root.manager.transition.direction = "left"
+            Button:
+                id: load_game
+                text: "Load Game"
+                on_release: 
+                    app.root.current = "load_game"
+                    root.manager.transition.direction = "left"
             Button: 
                 id: manual
                 text: "Manual"
+                on_release:
+                    app.root.current = "manual"
+                    root.manager.transition.direction = "left"
             Button:
-                id: settings
+                id: setting
                 text: "Settings"
+                on_release:
+                    app.root.current = "setting"
+                    root.manager.transition.direction = "left"
 
+
+<Difficulty>
+    name: "difficulty"
+    GridLayout:
+        cols: 1
+        Button:
+            text: "Easy"
+        Button:
+            text: "Medium"
+        Button:
+            text: "Hard"
+        Button:
+            text: "Back"
+            on_release: 
+                app.root.current = "title"
+                root.manager.transition.direction = "right"
+
+<Load_Game>
+    name: "load_game"
+    GridLayout: 
+        cols: 1
+        Button:
+            text: "Game 1"
+        Button: 
+            text: "Game 2"
+        Button:
+            text: "Game 3"
+        Button:
+            text: "Back"
+            on_release:
+                app.root.current = "title"
+                root.manager.transition.direction = "right"
+
+
+<Manual>
+    name: "manual"
+    GridLayout: 
+        cols: 1 
+        Label: 
+            text: "Game manual text"
+        Button: 
+            text: "Back" 
+            on_release: 
+                app.root.current = "title"
+                root.manager.transition.direction = "right"
+
+
+<Setting>
+    name: "setting"
+    GridLayout:
+        cols: 1
+        Button: 
+            text: "Volume"
+        Button:
+            text: "Text Speed"
+        Button:
+            text: "Back"
+            on_release:
+                app.root.current = "title"
+                root.manager.transition.direction = "right"
+                
 
 <Gameplay>:
     name: "gameplay"
