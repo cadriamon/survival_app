@@ -1,5 +1,5 @@
 import kivy
-from cyoa_surv_pkg import player, area, gameplay, area_dictionary
+from cyoa_surv_pkg import area, gameplay, area_dictionary
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
@@ -9,6 +9,47 @@ from kivy.uix.widget import Widget
 from kivy.properties import ObjectProperty
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.lang import Builder
+from kivy.clock import Clock
+
+
+class Player:
+    def __init__(self, name: str, hp: int, hunger: int, thirst: int):
+        """__init__function that instantiates player object for main.py game
+
+        Parameters
+        ---------
+        name
+            name string parameter represent name of playeer object
+        hp
+            hp int paramter represents the hp level of player object
+        hunger
+            hunger int paramter represents the hunger level for player object
+        thirst
+            thirst int paramter represents the thirst level for player object
+
+        Attributes
+        ----------
+        name
+            name string attribute represent name of playeer object
+        hp
+            hp int attribute represents the hp level of player object
+        hunger
+            hunger int attribute represents the hunger level for player object
+        thirst
+            thirst int attribute represents the thirst level for player object
+        journal
+            journal dict attribute builds empty dictionary for player journal
+        """
+        self.name = name
+        self.hp = hp
+        self.hunger = hunger
+        self.thirst = thirst
+        # self.area = area
+        # self.journal = []
+
+
+player = Player("", 0, 0, 0)
+test_text = "Hello" + player.name
 
 
 class Title(Screen):
@@ -28,16 +69,24 @@ class Setting(Screen):
 
 
 class Difficulty(Screen):
-    pass
+    player_name = ObjectProperty(None)
+
+    player = Player("", 0, 0, 0)
+
+    def easy_difficulty(self):
+        self.player.name = self.player_name.text
+        self.player.hp = 200
+        self.player.hunger = 200
+        self.player.thirst = 200
 
 
 class Gameplay(Screen):
-    def main_menu(self):
-        print("1. Start New Game")
-        print("2. Instructions")
-        print("3. Exit")
-        option = input(
-            "Welcome to Choose Your Own Adventure - Surival Edition! Please select an option: ")
+    stats = ObjectProperty(None)
+
+    def start_game(self):
+        self.add_widget(
+            Label(text="Name: " + Difficulty.player.name + " HP: " + str(Difficulty.player.hp), pos_hint={'center_x': .9, 'center_y': .9}))
+        Difficulty.player.hp -= 50
 
 
 class WindowManager(ScreenManager):

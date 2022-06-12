@@ -45,10 +45,20 @@ WindowManager:
 
 <Difficulty>
     name: "difficulty"
+    player_name: player_name
     GridLayout:
         cols: 1
+        Label:
+            text: "Name"
+        TextInput:
+            id: player_name
+            multiline: False
         Button:
             text: "Easy"
+            on_release:
+                root.easy_difficulty()
+                app.root.current = "gameplay"
+                root.manager.transition.direction = "left"
         Button:
             text: "Medium"
         Button:
@@ -102,10 +112,15 @@ WindowManager:
             on_release:
                 app.root.current = "title"
                 root.manager.transition.direction = "right"
-                
+
 
 <Gameplay>:
     name: "gameplay"
-
-    Label: 
-        text: "Game start"
+    on_enter:
+        root.start_game()
+    GridLayout:
+        cols:1
+        Button:
+            text: "Back"
+            on_release: 
+                app.root.current = "title"
