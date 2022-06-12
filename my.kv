@@ -3,7 +3,7 @@ WindowManager:
     Load_Game:
     Manual: 
     Setting:
-    Difficulty:
+    Start_Game:
     Gameplay:
 
 
@@ -21,7 +21,7 @@ WindowManager:
                 id: start
                 text: "Start"
                 on_release: 
-                    app.root.current = "difficulty"
+                    app.root.current = "start_game"
                     root.manager.transition.direction = "left"
             Button:
                 id: load_game
@@ -43,8 +43,8 @@ WindowManager:
                     root.manager.transition.direction = "left"
 
 
-<Difficulty>
-    name: "difficulty"
+<Start_Game>
+    name: "start_game"
     player_name: player_name
     GridLayout:
         cols: 1
@@ -117,7 +117,7 @@ WindowManager:
 <Gameplay>:
     name: "gameplay"
     on_enter:
-        root.start_game()
+        root.update()
     GridLayout:
         cols:1
         Label:

@@ -1,5 +1,5 @@
 import kivy
-from cyoa_surv_pkg import area, gameplay, area_dictionary as AD
+from cyoa_surv_pkg import area, gameplay, player as play, area_dictionary as ad
 from kivy.app import App
 from kivy.uix.label import Label
 from kivy.uix.gridlayout import GridLayout
@@ -64,16 +64,16 @@ class Setting(Screen):
     pass
 
 
-class Difficulty(Screen):
+class Start_Game(Screen):
     player_name = ObjectProperty(None)
 
-    player = Player("", 0, 0, 0, "HOME")
+    pc = Player("", 0, 0, 0, "HOME")
 
     def easy_difficulty(self):
-        self.player.name = self.player_name.text
-        self.player.hp = 200
-        self.player.hunger = 200
-        self.player.thirst = 200
+        self.pc.name = self.player_name.text
+        self.pc.hp = 200
+        self.pc.hunger = 200
+        self.pc.thirst = 200
 
 
 class Gameplay(Screen):
@@ -83,37 +83,25 @@ class Gameplay(Screen):
     layout = GridLayout()
 
     def start_game(self):
-        self.playerStats = Label(text="Name: " + Difficulty.player.name + " HP: " +
-                                 str(Difficulty.player.hp), pos_hint={'center_x': .9, 'center_y': .9})
+        pass
+
+    def update(self):
+        self.remove_widget(self.playerStats)
+        self.remove_widget(self.storyText)
+        self.playerStats = Label(text="Name: " + Start_Game.pc.name + " HP: " +
+                                 str(Start_Game.pc.hp), pos_hint={'center_x': .9, 'center_y': .9})
         self.add_widget(self.playerStats)
         self.storyText = Label(
-            text=AD.desc[Difficulty.player.area], pos_hint={'center_y': .7})
+            text=ad.desc[Start_Game.pc.area], pos_hint={'center_y': .7})
         self.add_widget(self.storyText)
-        Difficulty.player.hp += 50
 
     def area_1(self):
-        self.remove_widget(self.playerStats)
-        self.remove_widget(self.storyText)
-        Difficulty.player.area = AD.area1[Difficulty.player.area]
-        self.playerStats = Label(text="Name: " + Difficulty.player.name + " HP: " +
-                                 str(Difficulty.player.hp), pos_hint={'center_x': .9, 'center_y': .9})
-        self.add_widget(self.playerStats)
-        Difficulty.player.hp += 50
-        self.storyText = Label(
-            text=AD.desc[Difficulty.player.area], pos_hint={'center_y': .7})
-        self.add_widget(self.storyText)
+        Start_Game.pc.area = ad.area1[Start_Game.pc.area]
+        self.update()
 
     def area_2(self):
-        self.remove_widget(self.playerStats)
-        self.remove_widget(self.storyText)
-        Difficulty.player.area = AD.area2[Difficulty.player.area]
-        self.playerStats = Label(text="Name: " + Difficulty.player.name + " HP: " +
-                                 str(Difficulty.player.hp), pos_hint={'center_x': .9, 'center_y': .9})
-        self.add_widget(self.playerStats)
-        Difficulty.player.hp += 50
-        self.storyText = Label(
-            text=AD.desc[Difficulty.player.area], pos_hint={'center_y': .7})
-        self.add_widget(self.storyText)
+        Start_Game.pc.area = ad.area2[Start_Game.pc.area]
+        self.update()
 
 
 class WindowManager(ScreenManager):
