@@ -5,6 +5,7 @@ WindowManager:
     Setting:
     Start_Game:
     Story:
+    Search:
     Gameplay:
 
 
@@ -134,6 +135,14 @@ WindowManager:
         app.root.current = "gameplay"
         root.manager.transition.direction = "up"
 
+<Search>
+    name: "search"
+    on_enter:    
+        root.update_screen()
+    on_touch_down:
+        app.root.current = "gameplay"
+        root.manager.transition.direction = "up"
+
 
 
 <Gameplay>:
@@ -151,16 +160,19 @@ WindowManager:
                     root.area_1()
                     app.root.current = "story"
                     root.manager.transition.direction = "up"
+
             Button:
                 text: "Back to Area"
                 on_release: 
                     app.root.current = "story"
                     root.manager.transition.direction = "down"
+                    root.play_menu_sound()
             Button: 
                 on_release:
                     root.area_2()
                     app.root.current = "story"
                     root.manager.transition.direction = "up"
+
             
             Button:
                 text: "Title Menu"
@@ -168,7 +180,14 @@ WindowManager:
                     root.stop_BGM()
                     app.root.current = "title"
                     root.manager.transition.direction = "right"
+                    root.play_menu_sound()
             Button:
                 text: "Search Area"
+                on_release: 
+                    root.area_search()
+                    app.root.current = "search"
+                    root.manager.transition.direction = "up"
+                    root.play_menu_sound()
+
             Button:
                 text: "Save Game"

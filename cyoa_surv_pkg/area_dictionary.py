@@ -659,10 +659,10 @@ search_thirst_change = {
 
 area_img = {
     "HOME": "images\home_pixel.png",
-    "GARAGE": "PARK",
-    "NEIGHBORS": "HIGH SCHOOL",
-    "PARK": "CHURCH",
-    "BACKYARD": "DEATH",
+    "GARAGE": "images\garage.png",
+    "NEIGHBORS": "images\home_2.png",
+    "PARK": "images\park.png",
+    "BACKYARD": "images\shed.png",
     "NEIGHBORS BACKYARD": "CHURCH",
     "HIGH SCHOOL": "COURTHOUSE",
     "SHOPPING CENTER": "PARKING GARAGE",
@@ -699,9 +699,9 @@ area_img = {
 area_snd = {
     "HOME": "sound_effects\sneaker-on-concrete-medium_trim.mp3",
     "GARAGE": "sound_effects\sneaker-on-concrete-medium_trim.mp3",
-    "NEIGHBORS": "HIGH SCHOOL",
-    "PARK": "CHURCH",
-    "BACKYARD": "DEATH",
+    "NEIGHBORS": "sound_effects\grass_steps_trim.mp3",
+    "PARK": "sound_effects\grass_steps_trim.mp3",
+    "BACKYARD": "sound_effects\grass_steps_trim.mp3",
     "NEIGHBORS BACKYARD": "CHURCH",
     "HIGH SCHOOL": "COURTHOUSE",
     "SHOPPING CENTER": "PARKING GARAGE",
