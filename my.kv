@@ -4,6 +4,7 @@ WindowManager:
     Manual: 
     Setting:
     Start_Game:
+    Story:
     Gameplay:
 
 
@@ -15,6 +16,10 @@ WindowManager:
         rows: 2
         GridLayout:
             cols: 1
+            Label:
+                text: ""
+            Label:
+                text: ""
             Label: 
                 text: "Survival Game"
             Button:
@@ -57,7 +62,7 @@ WindowManager:
             text: "Easy"
             on_release:
                 root.easy_difficulty()
-                app.root.current = "gameplay"
+                app.root.current = "story"
                 root.manager.transition.direction = "left"
         Button:
             text: "Medium"
@@ -113,26 +118,48 @@ WindowManager:
                 app.root.current = "title"
                 root.manager.transition.direction = "right"
 
+<Story>
+    name: "story"
+    on_enter:    
+        root.update_screen()
+    on_touch_down:
+        app.root.current = "gameplay"
+        root.manager.transition.direction = "up"
+
+
 
 <Gameplay>:
     name: "gameplay"
     on_enter:
-        root.update()
+        root.update_screen()
     GridLayout:
         cols:1
-        Label:
-            text: "Image Placement"
+        Label: 
+            text: ""
         GridLayout:
-            cols:2
+            cols:3
             Button: 
-                text: "area1"
                 on_release: 
                     root.area_1()
+                    app.root.current = "story"
+                    root.manager.transition.direction = "up"
+            Button:
+                text: "Back to Area"
+                on_release: 
+                    app.root.current = "story"
+                    root.manager.transition.direction = "down"
             Button: 
-                text: "area2"
                 on_release:
                     root.area_2()
-        Button:
-            text: "Back"
-            on_release: 
-                app.root.current = "title"
+                    app.root.current = "story"
+                    root.manager.transition.direction = "up"
+            
+            Button:
+                text: "Title Menu"
+                on_release: 
+                    app.root.current = "title"
+                    root.manager.transition.direction = "right"
+            Button:
+                text: "Search Area"
+            Button:
+                text: "Save Game"

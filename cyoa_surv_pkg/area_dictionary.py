@@ -299,7 +299,11 @@ desc = {
     "\nand also realize that they keep spare keys in the compartment box." +
     "\nAs a horde of zombies approach, you swiftfully start the boat and drive" +
     "\noff into the sea before any could come aboard. You look back and say" +
-    "\nyour final goodbyes to your home."
+    "\nyour final goodbyes to your home.",
+
+
+    "GAMEOVER":
+    "Game over! Please start new game!"
 }
 
 hp_change = {
@@ -337,7 +341,8 @@ hp_change = {
     "DARK TUNNEL": -1000,
     "YACHT": -1000,
     "HELIPAD": 0,
-    "BOAT": 0
+    "BOAT": 0,
+    "GAMEOVER": 0
 }
 
 
@@ -376,7 +381,8 @@ hunger_change = {
     "DARK TUNNEL": 0,
     "YACHT": 0,
     "HELIPAD": 0,
-    "BOAT": 0
+    "BOAT": 0,
+    "GAMEOVER": 0
 }
 
 
@@ -415,7 +421,8 @@ thirst_change = {
     "DARK TUNNEL": 0,
     "YACHT": 0,
     "HELIPAD": 0,
-    "BOAT": 0
+    "BOAT": 0,
+    "GAMEOVER": 0
 }
 
 
@@ -454,7 +461,8 @@ area1 = {
     "DARK TUNNEL": "DEATH",
     "YACHT": "DEATH",
     "HELIPAD": "END",
-    "BOAT": "END"
+    "BOAT": "END",
+    "GAMEOVER": "GAMEOVER"
 }
 
 area2 = {
@@ -492,7 +500,8 @@ area2 = {
     "DARK TUNNEL": "DEATH",
     "YACHT": "DEATH",
     "HELIPAD": "END",
-    "BOAT": "END"
+    "BOAT": "END",
+    "GAMEOVER": "GAMEOVER"
 }
 
 
