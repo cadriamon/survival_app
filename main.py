@@ -12,6 +12,9 @@ from kivy.lang import Builder
 from kivy.clock import Clock
 from kivy.uix.image import Image
 from playsound import playsound
+import pygame
+
+pygame.init()
 
 
 class Player:
@@ -52,24 +55,32 @@ class Player:
 
 class Title(Screen):
     def play_menu_sound(self):
+        playsound('sound_effects\Menu-Button-Press-G.mp3', block=False)
 
 
 class Load_Game(Screen):
-    pass
+    def play_menu_sound(self):
+        playsound('sound_effects\Menu-Button-Press-G.mp3', block=False)
 
 
 class Manual(Screen):
-    pass
+    def play_menu_sound(self):
+        playsound('sound_effects\Menu-Button-Press-G.mp3', block=False)
 
 
 class Setting(Screen):
-    pass
+    def play_menu_sound(self):
+        playsound('sound_effects\Menu-Button-Press-G.mp3', block=False)
 
 
 class Start_Game(Screen):
+
     player_name = ObjectProperty(None)
 
     pc = Player("", 0, 0, 0, "HOME")
+
+    def play_menu_sound(self):
+        playsound('sound_effects\Menu-Button-Press-G.mp3', block=False)
 
     def easy_difficulty(self):
         self.pc.name = self.player_name.text
@@ -77,6 +88,9 @@ class Start_Game(Screen):
         self.pc.hunger = 200
         self.pc.thirst = 200
         self.pc.area = "HOME"
+        pygame.mixer.music.load(
+            'sound_effects\caves-of-dawn.mp3')
+        pygame.mixer.music.play(-1)
 
 
 class Story(Screen, GridLayout):
@@ -93,10 +107,10 @@ class Story(Screen, GridLayout):
         self.remove_widget(self.storyBg)
         self.remove_widget(self.storyText)
 
-        self.playerStats = Label(text="Name: " + Start_Game.pc.name + " HP: " +
-                                 str(Start_Game.pc.hp) + " Hunger: " + str(Start_Game.pc.hunger) +
-                                 " Thirst: " + str(Start_Game.pc.thirst), pos_hint={'center_x': .2, 'center_y': .95})
-        self.storyBg = Image(source="shinobu.png", size_hint_x=.5, pos_hint={
+        self.playerStats = Label(text="Name: " + Start_Game.pc.name + " HP:" +
+                                 str(Start_Game.pc.hp) + " Hunger:" + str(Start_Game.pc.hunger) +
+                                 " Thirst:" + str(Start_Game.pc.thirst), pos_hint={'center_x': .5, 'center_y': .95})
+        self.storyBg = Image(source=ad.area_img[Start_Game.pc.area], size_hint_x=.5, pos_hint={
             'center_x': .5, 'center_y': .6})
         self.storyText = Label(text=ad.desc[Start_Game.pc.area], pos_hint={
             'center_x': .5, 'center_y': .1})
@@ -114,9 +128,9 @@ class Gameplay(Screen, GridLayout):
         self.remove_widget(self.playerStats)
         self.remove_widget(self.storyText)
 
-        self.playerStats = Label(text="Name: " + Start_Game.pc.name + " HP: " +
-                                 str(Start_Game.pc.hp) + " Hunger: " + str(Start_Game.pc.hunger) +
-                                 " Thirst: " + str(Start_Game.pc.thirst), pos_hint={'center_x': .2, 'center_y': .95})
+        self.playerStats = Label(text="Name: " + Start_Game.pc.name + " HP:" +
+                                 str(Start_Game.pc.hp) + " Hunger:" + str(Start_Game.pc.hunger) +
+                                 " Thirst:" + str(Start_Game.pc.thirst), pos_hint={'center_x': .5, 'center_y': .95})
         if self.check_player() == True:
             self.storyText = Label(
                 text="GAME OVER!", pos_hint={'center_y': .7})
@@ -149,13 +163,21 @@ class Gameplay(Screen, GridLayout):
         Start_Game.pc.hunger += ad.hunger_change[Start_Game.pc.area]
         Start_Game.pc.thirst += ad.thirst_change[Start_Game.pc.area]
 
+    def area_sound(self):
+        playsound(ad.area_snd[Start_Game.pc.area], block=False)
+
     def area_1(self):
         Start_Game.pc.area = ad.area1[Start_Game.pc.area]
         self.update_player()
+        self.area_sound()
 
     def area_2(self):
         Start_Game.pc.area = ad.area2[Start_Game.pc.area]
         self.update_player()
+        self.area_sound()
+
+    def stop_BGM(self):
+        pygame.mixer.music.pause()
 
 
 class WindowManager(ScreenManager):

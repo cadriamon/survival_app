@@ -28,24 +28,28 @@ WindowManager:
                 on_release: 
                     app.root.current = "start_game"
                     root.manager.transition.direction = "left"
+                    root.play_menu_sound()
             Button:
                 id: load_game
                 text: "Load Game"
                 on_release: 
                     app.root.current = "load_game"
                     root.manager.transition.direction = "left"
+                    root.play_menu_sound()
             Button: 
                 id: manual
                 text: "Manual"
                 on_release:
                     app.root.current = "manual"
                     root.manager.transition.direction = "left"
+                    root.play_menu_sound()
             Button:
                 id: setting
                 text: "Settings"
                 on_release:
                     app.root.current = "setting"
                     root.manager.transition.direction = "left"
+                    root.play_menu_sound()
 
 
 <Start_Game>
@@ -64,6 +68,7 @@ WindowManager:
                 root.easy_difficulty()
                 app.root.current = "story"
                 root.manager.transition.direction = "left"
+                root.play_menu_sound()
         Button:
             text: "Medium"
         Button:
@@ -73,6 +78,7 @@ WindowManager:
             on_release: 
                 app.root.current = "title"
                 root.manager.transition.direction = "right"
+                root.play_menu_sound()
 
 <Load_Game>
     name: "load_game"
@@ -89,6 +95,7 @@ WindowManager:
             on_release:
                 app.root.current = "title"
                 root.manager.transition.direction = "right"
+                root.play_menu_sound()
 
 
 <Manual>
@@ -102,7 +109,7 @@ WindowManager:
             on_release: 
                 app.root.current = "title"
                 root.manager.transition.direction = "right"
-
+                root.play_menu_sound()
 
 <Setting>
     name: "setting"
@@ -117,6 +124,7 @@ WindowManager:
             on_release:
                 app.root.current = "title"
                 root.manager.transition.direction = "right"
+                root.play_menu_sound()
 
 <Story>
     name: "story"
@@ -157,6 +165,7 @@ WindowManager:
             Button:
                 text: "Title Menu"
                 on_release: 
+                    root.stop_BGM()
                     app.root.current = "title"
                     root.manager.transition.direction = "right"
             Button:

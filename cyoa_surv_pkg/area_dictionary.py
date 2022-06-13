@@ -19,16 +19,16 @@ thirst_change : dict
     thirst_change dict attribute represents player thirst adjustments in
     main.py based on string key pair int values
 
-area1 : dict 
+area1 : dict
     area1 dict attribute represents player's first area option in main.py
     based on string key pair string values
 
-area2 : dict 
+area2 : dict
     area2 dict attribute represents player's second area option in main.py
     based on string key pair string values
 
 search_desc : dict
-    search_desc dict attribute represents search description key pair 
+    search_desc dict attribute represents search description key pair
     text values
 
 search_hp_change : dict
@@ -655,4 +655,82 @@ search_thirst_change = {
     "YACHT": 0,
     "HELIPAD": 0,
     "BOAT": 0
+}
+
+area_img = {
+    "HOME": "images\home_pixel.png",
+    "GARAGE": "PARK",
+    "NEIGHBORS": "HIGH SCHOOL",
+    "PARK": "CHURCH",
+    "BACKYARD": "DEATH",
+    "NEIGHBORS BACKYARD": "CHURCH",
+    "HIGH SCHOOL": "COURTHOUSE",
+    "SHOPPING CENTER": "PARKING GARAGE",
+    "CHURCH": "GRAVEYARD",
+    "PARKING GARAGE": "MALL",
+    "GRAVEYARD": "COURTHOUSE",
+    "DEEP GRAVEYARD": "DEATH",
+    "MALL": "COLLEGE",
+    "MOTEL": "COLLEGE",
+    "COURTHOUSE": "POLICE STATION",
+    "COLLEGE": "GYM",
+    "WOODS": "MANSION",
+    "POLICE STATION": "CONSTRUCTION AREA",
+    "GYM": "POLICE STATION",
+    "LAKE": "CABIN",
+    "MANSION": "LAKE",
+    "MOUNTAIN": "DEATH",
+    "CABIN": "MOUNTAIN",
+    "BEACH": "LIGHTRAIL",
+    "BARS": "LIGHTRAIL",
+    "DOCK": "YACHT",
+    "CONSTRUCTION AREA": "HOSPITAL",
+    "CRANE": "DEATH",
+    "LIGHTRAIL": "HOSPITAL",
+    "HOSPITAL": "HELIPAD",
+    "EMERGENCY ROOM": "DEATH",
+    "DARK TUNNEL": "DEATH",
+    "YACHT": "DEATH",
+    "HELIPAD": "END",
+    "BOAT": "END",
+    "GAMEOVER": "GAMEOVER"
+}
+
+area_snd = {
+    "HOME": "sound_effects\sneaker-on-concrete-medium_trim.mp3",
+    "GARAGE": "sound_effects\sneaker-on-concrete-medium_trim.mp3",
+    "NEIGHBORS": "HIGH SCHOOL",
+    "PARK": "CHURCH",
+    "BACKYARD": "DEATH",
+    "NEIGHBORS BACKYARD": "CHURCH",
+    "HIGH SCHOOL": "COURTHOUSE",
+    "SHOPPING CENTER": "PARKING GARAGE",
+    "CHURCH": "GRAVEYARD",
+    "PARKING GARAGE": "MALL",
+    "GRAVEYARD": "COURTHOUSE",
+    "DEEP GRAVEYARD": "DEATH",
+    "MALL": "COLLEGE",
+    "MOTEL": "COLLEGE",
+    "COURTHOUSE": "POLICE STATION",
+    "COLLEGE": "GYM",
+    "WOODS": "MANSION",
+    "POLICE STATION": "CONSTRUCTION AREA",
+    "GYM": "POLICE STATION",
+    "LAKE": "CABIN",
+    "MANSION": "LAKE",
+    "MOUNTAIN": "DEATH",
+    "CABIN": "MOUNTAIN",
+    "BEACH": "LIGHTRAIL",
+    "BARS": "LIGHTRAIL",
+    "DOCK": "YACHT",
+    "CONSTRUCTION AREA": "HOSPITAL",
+    "CRANE": "DEATH",
+    "LIGHTRAIL": "HOSPITAL",
+    "HOSPITAL": "HELIPAD",
+    "EMERGENCY ROOM": "DEATH",
+    "DARK TUNNEL": "DEATH",
+    "YACHT": "DEATH",
+    "HELIPAD": "END",
+    "BOAT": "END",
+    "GAMEOVER": "GAMEOVER"
 }
