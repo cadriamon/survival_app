@@ -657,6 +657,44 @@ search_thirst_change = {
     "BOAT": 0
 }
 
+search_bool = {
+    "HOME": False,
+    "GARAGE": False,
+    "NEIGHBORS": False,
+    "PARK": False,
+    "BACKYARD": False,
+    "NEIGHBORS BACKYARD": False,
+    "HIGH SCHOOL": False,
+    "SHOPPING CENTER": False,
+    "CHURCH": False,
+    "PARKING GARAGE": False,
+    "GRAVEYARD": False,
+    "DEEP GRAVEYARD": False,
+    "MALL": False,
+    "MOTEL": False,
+    "COURTHOUSE": False,
+    "COLLEGE": False,
+    "WOODS": False,
+    "POLICE STATION": False,
+    "GYM": False,
+    "LAKE": False,
+    "MANSION": False,
+    "MOUNTAIN": False,
+    "CABIN": False,
+    "BEACH": False,
+    "BARS": False,
+    "DOCK": False,
+    "CONSTRUCTION AREA": False,
+    "CRANE": False,
+    "LIGHTRAIL": False,
+    "HOSPITAL": False,
+    "EMERGENCY ROOM": False,
+    "DARK TUNNEL": False,
+    "YACHT": False,
+    "HELIPAD": False,
+    "BOAT": False
+}
+
 area_img = {
     "HOME": "images\home_pixel.png",
     "GARAGE": "images\garage.png",

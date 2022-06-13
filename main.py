@@ -143,13 +143,19 @@ class Search(Screen, GridLayout):
         self.remove_widget(self.storyBg)
         self.remove_widget(self.storyText)
 
+        if ad.search_bool[Start_Game.pc.area] == False:
+            search_text = ad.search_desc[Start_Game.pc.area]
+            ad.search_bool[Start_Game.pc.area] = True
+        else:
+            search_text = "You have already searched this area."
+
         self.playerStats = Label(text="Name: " + Start_Game.pc.name + " HP:" +
                                  str(Start_Game.pc.hp) + " Hunger:" + str(Start_Game.pc.hunger) +
                                  " Thirst:" + str(Start_Game.pc.thirst), pos_hint={'center_x': .5, 'center_y': .95},
                                  size_hint={1, .1}, font_size=self.width/25)
         self.storyBg = Image(source=ad.area_img[Start_Game.pc.area], size_hint_x=.8, pos_hint={
             'center_x': .5, 'center_y': .6})
-        self.storyText = Label(text=ad.search_desc[Start_Game.pc.area], pos_hint={
+        self.storyText = Label(text=search_text, pos_hint={
             'center_x': .5, 'center_y': .2}, size_hint={1, .1}, font_size=self.width/35)
 
         self.add_widget(self.playerStats)
@@ -223,7 +229,8 @@ class Gameplay(Screen, GridLayout):
         self.area_sound()
 
     def area_search(self):
-        self.search_update_player()
+        if ad.search_bool[Start_Game.pc.area] == False:
+            self.search_update_player()
 
     def stop_BGM(self):
         pygame.mixer.music.pause()
